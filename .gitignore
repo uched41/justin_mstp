@@ -1,0 +1,5 @@
+*.o
+/bacnet_stack/bin/**
+/bacnet_stack/ports/*
+!/bacnet_stack/ports/linux
+/bacnet_stack/docs/**
