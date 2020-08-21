@@ -381,7 +381,7 @@ void dlenv_init(
         apdu_retries_set((uint8_t) strtol(pEnv, NULL, 0));
     }
     /* === Initialize the Datalink Here === */
-	pEnv = getenv("BACNET_MSTP_SERIAL_PORT") ? getenv("BACNET_MSTP_SERIAL_PORT") : "/dev/ttyUSB0";
+	pEnv = getenv("BACNET_MSTP_SERIAL_PORT") ? getenv("BACNET_MSTP_SERIAL_PORT") : "/dev/serial0";
     if (!datalink_init(getenv(pEnv))) {
         exit(1);
     }
