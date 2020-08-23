@@ -11,6 +11,8 @@ TARGET_BIN = ${TARGET}$(TARGET_EXT)
 
 SRC = main.c
 
+#CFLAGS=-D BACDL_MSTP
+
 OBJECT_SRC = \
 	$(BACNET_OBJECT)/device.c \
 	$(BACNET_OBJECT)/ai.c \
