@@ -2,17 +2,12 @@ import os
 import subprocess
 import json
 import time, random
-import RPi.GPIO as GPIO
 
-c_binary_location = "./demo/server/bacserv"
+c_binary_location = "bacnet_stack/demo/server/bacserv"
 update_options = ["Temperature", "Humidity", "Pressure", "Flow", "Analog", "Particles"]
 bacnet_proc = None
 
 def start_bacnet():
-	GPIO.setwarnings(False)
-	GPIO.setmode(GPIO.BOARD)
-	GPIO.setup(7, GPIO.OUT, initial=GPIO.HIGH)
-	
 	global bacnet_proc
 	try:
 		bacnet_proc = subprocess.Popen(
