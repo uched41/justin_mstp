@@ -12,7 +12,7 @@ def start_bacnet():
 	try:
 		bacnet_proc = subprocess.Popen(
 			c_binary_location, 
-			bufsize=0,
+			bufsize=-1,
 			stdin=subprocess.PIPE, 
 			stdout=subprocess.PIPE,
 			stderr=subprocess.STDOUT
@@ -51,10 +51,12 @@ if __name__ == "__main__":
 	print("Starting BACnet ")
 	start_bacnet()
 	
+	av = 1
 	while True:
 		try:
 			update_value("Temperature", round(random.random()*100, 2))
 			time.sleep(2)
+			av = (av+10)%100
 		except KeyboardInterrupt:
 			print("Stopping")
 			stop_bacnet()

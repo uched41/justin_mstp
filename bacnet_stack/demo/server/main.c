@@ -200,6 +200,7 @@ int main(
     BACNET_CHARACTER_STRING* tstring = malloc(sizeof(BACNET_CHARACTER_STRING)) ;
     characterstring_init_ansi(tstring, "Temperature");
     Analog_Input_Object_Name(TEMP_DATA, tstring);
+    Analog_Input_Present_Value_Set(TEMP_DATA, 4);
 
     characterstring_init_ansi(tstring, "Humidity");
     Analog_Input_Object_Name(HUMIDITY_DATA, tstring);

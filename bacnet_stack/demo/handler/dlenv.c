@@ -381,7 +381,7 @@ void dlenv_init(
         apdu_retries_set((uint8_t) strtol(pEnv, NULL, 0));
     }
     /* === Initialize the Datalink Here === */
-	pEnv = "/dev/serial0";
+	pEnv = "/dev/ttyUSB0";
     if (!datalink_init(pEnv)) {
         exit(1);
     }

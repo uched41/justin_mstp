@@ -27,6 +27,7 @@
  *                 to a BACnet device, as well as Device-specific properties. */
 
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdint.h>
 #include <string.h>     /* for memmove */
 #include <time.h>       /* for timezone, localtime */
@@ -1463,10 +1464,14 @@ int Device_Read_Property(
     rpdata->error_class = ERROR_CLASS_OBJECT;
     rpdata->error_code = ERROR_CODE_UNKNOWN_OBJECT;
     pObject = Device_Objects_Find_Functions(rpdata->object_type);
+    //fprintf(stderr, "RP: Searching for object\n");
+    
     if (pObject != NULL) {
+        //fprintf(stderr, "RP: Object found\n");
         if (pObject->Object_Valid_Instance &&
             pObject->Object_Valid_Instance(rpdata->object_instance)) {
             if (pObject->Object_Read_Property) {
+                //fprintf(stderr, "RP: APDU Set\n");
                 apdu_len = pObject->Object_Read_Property(rpdata);
             }
         }
